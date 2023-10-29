@@ -45,12 +45,19 @@ public class EffortLoggingInputController {
 	// mock-ups for databases
     // these will all be in one table
     // the indices of each array correspond to the other ones
-	ArrayList<LocalDateTime> startTimes = new ArrayList<>();
-	ArrayList<LocalDateTime> endTimes = new ArrayList<>();
-	ArrayList<String> projects = new ArrayList<>();
-	ArrayList<String> lifeCycles = new ArrayList<>();
-	ArrayList<String> effortCategories = new ArrayList<>();
-	ArrayList<String> items = new ArrayList<>();
+//	ArrayList<LocalDateTime> startTimes = new ArrayList<>();
+//	ArrayList<LocalDateTime> endTimes = new ArrayList<>();
+//	ArrayList<String> projects = new ArrayList<>();
+//	ArrayList<String> lifeCycles = new ArrayList<>();
+//	ArrayList<String> effortCategories = new ArrayList<>();
+//	ArrayList<String> items = new ArrayList<>();
+	ArrayList<LocalDateTime> startTimes;// = new ArrayList<>();
+	ArrayList<LocalDateTime> endTimes;// = new ArrayList<>();
+	ArrayList<String> projects;// = new ArrayList<>();
+	ArrayList<String> lifeCycles;// = new ArrayList<>();
+	ArrayList<String> effortCategories;// = new ArrayList<>();
+	ArrayList<String> items;// = new ArrayList<>();
+
 	
 	
 	
@@ -105,6 +112,15 @@ public class EffortLoggingInputController {
 
     @FXML
     private void initialize() {
+    	
+    	startTimes = EffortLoggingData.getInstance().getStartTimes();
+    	endTimes = EffortLoggingData.getInstance().getStartTimes();
+    	projects = EffortLoggingData.getInstance().getProjects();
+    	lifeCycles = EffortLoggingData.getInstance().getLifeCycles();
+    	effortCategories = EffortLoggingData.getInstance().getEffortCategories();
+    	items = EffortLoggingData.getInstance().getItems();
+    	
+    	
     	projectBox.getItems().addAll("Business Project", "Development Project");
     	lifeCycleBox.getItems().addAll("Planning", "Information Gathering", "Information Understanding", "Verifying",
     			"Outlining", "Drafting", "Finalizing", "Team Meeting", "Coach Meeting", "Stakeholder Meeting");
