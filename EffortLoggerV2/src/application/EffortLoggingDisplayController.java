@@ -21,7 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Author: Om Sunit Chaudhari
+ * Author: Om Sunil Chaudhari
  * Datetime: Oct 29 9:59pm
  * Description: This class, EffortLoggingDisplayController, manages the display and searching of effort logs.
  * The user interface consists of fields for input (project, lifecycle, effort category) and a TextArea to show the matching logs.
