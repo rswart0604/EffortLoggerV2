@@ -3,6 +3,16 @@ package application;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+/*
+ * Author: George Jobi Perangattu
+ * Datetime: Oct 29 9:48pm
+ * Description: This class, EffortLoggerData, acts as a singleton data store for logging effort related to various tasks in the application.
+ * It contains multiple ArrayLists to store different pieces of information such as start times, end times, projects, life cycles, effort categories, and items.
+ * The class also maintains a username and a flag (singlePrototype) to determine whether the application is running in single prototype mode.
+ * Accessor and mutator methods are provided to interact with the data stored within this class.
+ * 
+ */
+
 public class EffortLoggerData {
 	
 	// Singleton instance of EffortLoggerData

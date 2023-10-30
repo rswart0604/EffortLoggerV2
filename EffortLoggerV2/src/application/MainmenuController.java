@@ -9,8 +9,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class MainmenuController {
+/**
+ * Author: Mohan Kummarigunta
+ * Datetime: Oct 29 10:05pm
+ * Description: The MainmenuController class is responsible for handling user actions on the main menu of the application.
+ * It provides buttons for different prototypes that users can choose to interact with.
+ * Each button, when clicked, will trigger a different event, loading a specific FXML file and changing the stage's scene to the corresponding layout.
+ * The EffortLoggerData singleton instance is utilized to set whether a single prototype is being accessed or an integrated one.
+ * Every time a prototype button is clicked, the application loads a new screen corresponding to that prototype.
+ * The initialize method is provided as a stub, suggesting that any necessary initial setup for the controller can be done here.
+ * 
+ */
 
+public class MainmenuController {
+	
+	// Declaring buttons for individual prototypes
 	@FXML
     private Button prototypeOneButton;
 	@FXML
@@ -27,6 +40,7 @@ public class MainmenuController {
     private Button integratedPrototypeButton;
 	
 	
+	//event handler for prototype one button
 	@FXML
 	private void oneClicked(ActionEvent event) {
 		EffortLoggerData.getInstance().setSinglePrototype(true);
@@ -43,6 +57,7 @@ public class MainmenuController {
 	}
 	
 	@FXML
+	//event handler for prototype two button
 	private void twoClicked(ActionEvent event) {
 		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
@@ -58,6 +73,7 @@ public class MainmenuController {
 	}
 	
 	@FXML
+	//event handler for prototype three button
 	private void threeClicked(ActionEvent event) {
 		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
@@ -73,6 +89,7 @@ public class MainmenuController {
 	}
 	
 	@FXML
+	//event handler for prototype four button
 	private void fourClicked(ActionEvent event) {
 		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
@@ -88,6 +105,7 @@ public class MainmenuController {
 	}
 	
 	@FXML
+	//event handler for prototype five button
 	private void fiveClicked(ActionEvent event) {
 		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
@@ -103,6 +121,7 @@ public class MainmenuController {
 	}
 	
 	@FXML
+	//event handler for prototype six button
 	private void sixClicked(ActionEvent event) {
 		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
@@ -118,6 +137,7 @@ public class MainmenuController {
 	}
 	
 	@FXML
+	//event handler for integrated prototype button
 	private void integratedClicked(ActionEvent event) {
 		EffortLoggerData.getInstance().setSinglePrototype(false);
 		try {

@@ -14,6 +14,16 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 
+/**
+ * Author: Sankritya Thakur
+ * Datetime: Oct 29 10:03pm
+ * Description: The Main class is the entry point for the JavaFX application.
+ * It initializes and starts the primary stage with the "main_menu.fxml" layout.
+ * The window dimensions are set to 300x500 pixels and titled "Main menu".
+ * In case of any exceptions during the layout loading or application startup, it prints the stack trace.
+ * 
+ */
+
 public class Main extends Application {
 	public static void main(String[] args) {
         launch(args);

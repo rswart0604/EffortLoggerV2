@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 
 /*
- * Author: George Jobi Perangattu
+ * Author: Sankritya Thakur
  * Datetime: OCt 28 3:54PM
  * Description: This class provides the functionality for user story inputting.
  * 					The main risk associated with this class is to test input validation.
@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 
 public class UserStoryInputController {
 	
+	// UI components declarations
 	@FXML
 	private Button submitButton;
 	@FXML
@@ -172,8 +173,10 @@ public class UserStoryInputController {
 	
 	
 	@FXML
+	// Method to handle the action when the past story checkbox is clicked
 	private void pastStoryCheckboxClicked() {
 		checkboxClicked = !checkboxClicked;
+		// If the checkbox is checked, show the effortPointsField; otherwise, hide it
 		if (checkboxClicked) {
 			effortPointsField.setVisible(true);
 		} else {
@@ -184,9 +187,12 @@ public class UserStoryInputController {
 	
 	
     @FXML
+    // Method to handle the action when the back button is clicked
     private void backClicked(ActionEvent event) {
+    	// Check if the application is in single prototype mode
     	if (EffortLoggerData.getInstance().isSinglePrototype()) {
 	    	try {
+	    		// Navigate back to the main menu screen
 		    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		    	Parent root = FXMLLoader.load(getClass().getResource("/main_menu.fxml"));
 				Scene scene = new Scene(root, 300, 500);
@@ -197,6 +203,7 @@ public class UserStoryInputController {
 	    	}
 		} else {
 			try {
+				// Navigate back to the post login screen
 		    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		    	Parent root = FXMLLoader.load(getClass().getResource("/PostLoginScreen.fxml"));
 				Scene scene = new Scene(root, 1000, 560);

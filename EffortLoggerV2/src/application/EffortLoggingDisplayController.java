@@ -20,6 +20,16 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Author: Om Sunit Chaudhari
+ * Datetime: Oct 29 9:59pm
+ * Description: This class, EffortLoggingDisplayController, manages the display and searching of effort logs.
+ * The user interface consists of fields for input (project, lifecycle, effort category) and a TextArea to show the matching logs.
+ * Multiple ArrayLists internally capture and filter data based on user search criteria.
+ * The back button provides navigation functionality, guiding users to the previous screen.
+ * 
+ */
+
 public class EffortLoggingDisplayController {
 
 	@FXML
@@ -35,7 +45,7 @@ public class EffortLoggingDisplayController {
 	@FXML
 	private TextField effortCategoryField;
 	
-	
+	// Lists for storing various effort logging data
 	ArrayList<LocalDateTime> startTimes = new ArrayList<>();
 	ArrayList<LocalDateTime> endTimes = new ArrayList<>();
 	ArrayList<String> projects = new ArrayList<>();
@@ -43,13 +53,15 @@ public class EffortLoggingDisplayController {
 	ArrayList<String> effortCategories = new ArrayList<>();
 	ArrayList<String> items = new ArrayList<>();
 	
+	// Lists for tracking indices relevant to the current view and search results
 	ArrayList<Integer> currentIndices = new ArrayList<>();
 	ArrayList<Integer> showIndices = new ArrayList<>();
 	
 	
 	
 	
-	@FXML
+	// Filter displayed logs based on effort category input
+    @FXML
 	private void effortCategoryTyped() {
 		showIndices.clear();
 		String effortCat = effortCategoryField.getText();
@@ -65,6 +77,7 @@ public class EffortLoggingDisplayController {
 	}
 	
 	@FXML
+	// Filter displayed logs based on life cycle input
 	private void lifeCycleTyped() {
 		showIndices.clear();
 		String lifeCycle = lifeCycleField.getText();
@@ -80,6 +93,7 @@ public class EffortLoggingDisplayController {
 	}
 	
 	@FXML
+	// Search and display logs based on project name
 	private void searchClicked() {
 		currentIndices.clear();
 		showIndices.clear();
@@ -93,6 +107,7 @@ public class EffortLoggingDisplayController {
 		setTextArea();
 	}
 	
+	// Display the relevant effort logs in the TextArea component
 	private void setTextArea() {
 		String toSet = "";
 		for (Integer i : showIndices) {
@@ -110,6 +125,7 @@ public class EffortLoggingDisplayController {
 	
 	
     @FXML
+    // Navigate back to the main menu or post login screen
     private void backClicked(ActionEvent event) {
     	if (EffortLoggerData.getInstance().isSinglePrototype()) {
 	    	try {
@@ -135,6 +151,7 @@ public class EffortLoggingDisplayController {
     }
 
     @FXML
+    // Initialize the controller, loading mock data or real data as appropriate
     private void initialize() {
         // method stub, just initialize everything here
     	EffortLoggerData data = EffortLoggerData.getInstance();

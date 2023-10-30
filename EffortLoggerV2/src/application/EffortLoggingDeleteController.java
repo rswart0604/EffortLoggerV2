@@ -20,6 +20,17 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Author: Mohan Kummarigunta
+ * Datetime: Oct 29 9:53 pm
+ * Description: This class, EffortLoggingDeleteController, is responsible for managing the deletion of effort logs.
+ * It provides a user interface with fields to view existing logs, enter the index of a log to delete, and buttons to perform deletion or navigate back.
+ * Internally, it maintains several ArrayLists to store different attributes of the logs, such as start times, end times, project names, life cycles, effort categories, and items.
+ * There is a TextArea to display all the logs, a TextField to input the index of the log to delete, and a Text component to display messages.
+ * When the delete button is clicked, the code checks if the entered index is valid and deletes the log if it is. The UI is then updated to reflect this deletion.
+ * 
+ */
+
 public class EffortLoggingDeleteController {
 
 	@FXML
@@ -33,7 +44,7 @@ public class EffortLoggingDeleteController {
 	@FXML
 	private Text messageText;
 	
-	
+	// Lists for storing various effort logging data
 	ArrayList<LocalDateTime> startTimes = new ArrayList<>();
 	ArrayList<LocalDateTime> endTimes = new ArrayList<>();
 	ArrayList<String> projects = new ArrayList<>();
@@ -43,6 +54,7 @@ public class EffortLoggingDeleteController {
 	
 	
 	@FXML
+	// Handle the delete button click, removes the selected log
 	private void deleteClicked() {
 		String toDelete = indexField.getText();
 		if (toDelete.equals("")) {
@@ -70,7 +82,7 @@ public class EffortLoggingDeleteController {
 		messageText.setText("Effort " + Integer.toString(index) + " has been deleted!");
 		setTextArea();
 	}
-	
+	// Update the displayed list of effort logs in the TextArea component
 	private void setTextArea() {
 		String toSet = "";
 		for (int i=0; i<startTimes.size(); i++) {
@@ -88,6 +100,7 @@ public class EffortLoggingDeleteController {
 	
 	
 	@FXML
+	// Navigate back to the main menu or post login screen
     private void backClicked(ActionEvent event) {
 		if (EffortLoggerData.getInstance().isSinglePrototype()) {
 	    	try {
@@ -113,6 +126,7 @@ public class EffortLoggingDeleteController {
     }
 
     @FXML
+    // Initialize the controller, loading mock data or real data as appropriate
     private void initialize() {
         // method stub, just initialize everything here
     	EffortLoggerData data = EffortLoggerData.getInstance();
