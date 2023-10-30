@@ -21,7 +21,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- * Author: Ryan Swart
+ * Author: Om Sunil Chaudhari
  * Datetime: Oct 29 10:01pm
  * Description: The EffortLoggingInputController class manages the input interface for logging effort related to projects.
  * Users can select a project, life cycle, effort category, and item using ComboBoxes and initiate or stop the logging with a button click.
