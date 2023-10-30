@@ -20,20 +20,18 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class EffortLoggingDisplayController {
+public class EffortLoggingDeleteController {
 
 	@FXML
-	private TextField projectField;
+	private TextArea effortLogsField;
 	@FXML
-	private Button searchButton;
+	private TextField indexField;
 	@FXML
-	private TextArea effortLogDisplayArea;
+	private Button deleteButton;
 	@FXML
 	private Button backButton;
 	@FXML
-	private TextField lifeCycleField; 
-	@FXML
-	private TextField effortCategoryField;
+	private Text messageText;
 	
 	
 	ArrayList<LocalDateTime> startTimes = new ArrayList<>();
@@ -43,60 +41,40 @@ public class EffortLoggingDisplayController {
 	ArrayList<String> effortCategories = new ArrayList<>();
 	ArrayList<String> items = new ArrayList<>();
 	
-	ArrayList<Integer> currentIndices = new ArrayList<>();
-	ArrayList<Integer> showIndices = new ArrayList<>();
-	
-	
-	
 	
 	@FXML
-	private void effortCategoryTyped() {
-		showIndices.clear();
-		String effortCat = effortCategoryField.getText();
-		if (effortCat.equals("")) {
-			showIndices.addAll(currentIndices);
+	private void deleteClicked() {
+		String toDelete = indexField.getText();
+		if (toDelete.equals("")) {
+			return;
 		}
-		for (int i=0; i<currentIndices.size(); i++) {
-			if (effortCategories.get(i).equals(effortCat)) {
-				showIndices.add(i);
-			}
+		int index;
+		try {
+			index = Integer.parseInt(toDelete);
+		} catch (Exception e) {
+			return;
 		}
-		setTextArea();
-	}
-	
-	@FXML
-	private void lifeCycleTyped() {
-		showIndices.clear();
-		String lifeCycle = lifeCycleField.getText();
-		if (lifeCycle.equals("")) {
-			showIndices.addAll(currentIndices);
+		
+		if (index < 0 || index >= startTimes.size()) {
+			messageText.setText("Index is out of bounds!");
+			return;
 		}
-		for (int i=0; i<currentIndices.size(); i++) {
-			if (lifeCycles.get(i).equals(lifeCycle)) {
-				showIndices.add(i);
-			}
-		}
-		setTextArea();
-	}
-	
-	@FXML
-	private void searchClicked() {
-		currentIndices.clear();
-		showIndices.clear();
-		String project = projectField.getText();
-		for (int i=0; i<projects.size(); i++) {
-			if (projects.get(i).equals(project)) {
-				currentIndices.add(i);
-				showIndices.add(i);
-			}
-		}
+		
+		startTimes.remove(index);
+		endTimes.remove(index);
+		projects.remove(index);
+		lifeCycles.remove(index);
+		effortCategories.remove(index);
+		items.remove(index);
+		
+		messageText.setText("Effort " + Integer.toString(index) + " has been deleted!");
 		setTextArea();
 	}
 	
 	private void setTextArea() {
 		String toSet = "";
-		for (Integer i : showIndices) {
-			toSet += "Effort " + i.toString() + "\n";
+		for (int i=0; i<startTimes.size(); i++) {
+			toSet += "Effort " + Integer.toString(i) + "\n";
 			toSet += "Start: " + startTimes.get(i).toString() + "\n";
 			toSet += "End: " + endTimes.get(i).toString() + "\n";
 			toSet += "Project: " + projects.get(i).toString() + "\n";
@@ -104,14 +82,14 @@ public class EffortLoggingDisplayController {
 			toSet += "Effort category: " + effortCategories.get(i).toString() + "\n";
 			toSet += "Item: " + items.get(i).toString() + "\n\n\n";
 		}
-		effortLogDisplayArea.setText(toSet);
+		effortLogsField.setText(toSet);
 	}
 	
 	
 	
-    @FXML
+	@FXML
     private void backClicked(ActionEvent event) {
-    	if (EffortLoggerData.getInstance().isSinglePrototype()) {
+		if (EffortLoggerData.getInstance().isSinglePrototype()) {
 	    	try {
 		    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		    	Parent root = FXMLLoader.load(getClass().getResource("/main_menu.fxml"));
@@ -165,6 +143,8 @@ public class EffortLoggingDisplayController {
     		effortCategories = data.getEffortCategories();
     		items = data.getItems();
     	}
+    	setTextArea();
     }
+	
 	
 }

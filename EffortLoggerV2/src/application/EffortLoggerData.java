@@ -3,11 +3,11 @@ package application;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class EffortLoggingData {
+public class EffortLoggerData {
 	
-    private final static EffortLoggingData instance = new EffortLoggingData();
+    private final static EffortLoggerData instance = new EffortLoggerData();
 
-    public static EffortLoggingData getInstance() {
+    public static EffortLoggerData getInstance() {
         return instance;
     }
     
@@ -17,6 +17,14 @@ public class EffortLoggingData {
 	ArrayList<String> lifeCycles = new ArrayList<>();
 	ArrayList<String> effortCategories = new ArrayList<>();
 	ArrayList<String> items = new ArrayList<>();
+	
+	String username = "";
+	
+	boolean singlePrototype = true;
+	
+	
+	// TODO: we will add user story information to this later! once we have real deal planning poker set up with weights and all
+	// 			this is just a prototype version of what a database interface might look like
 	
 	
 	public ArrayList<LocalDateTime> getStartTimes() {
@@ -41,6 +49,26 @@ public class EffortLoggingData {
 	
 	public ArrayList<String> getItems() {
 		return items;
+	}
+	
+	
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String newUsername) {
+		username = newUsername;
+	}
+	
+	
+	
+	public boolean isSinglePrototype() {
+		return singlePrototype;
+	}
+	
+	public void setSinglePrototype(boolean isSingle) {
+		singlePrototype = isSingle;
 	}
 	
 	

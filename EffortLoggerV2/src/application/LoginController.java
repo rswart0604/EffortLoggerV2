@@ -67,6 +67,7 @@ public class LoginController {
 	    			messageText.setText("success! welcome back " + usernameField.getText()); // if good, then tell us
 	    			System.out.println("success!");
 	    			curUsername = usernameField.getText();
+	    			EffortLoggerData.getInstance().setUsername(curUsername); // add it to our data
 	    			
 	    			// get whether or not we're an admin
 	    			curUserIsAdmin = isAdminList.get(index);
@@ -117,9 +118,21 @@ public class LoginController {
     }
     
     @FXML
-    private void proceedClicked() {
-    	// TODO: obviously this is not implemented. in the actual application, this would take you to the menu after logging in
+    private void proceedClicked(ActionEvent event) {
     	System.out.println("Hello! I would move to new application now.");
+    	
+    	if (!EffortLoggerData.getInstance().singlePrototype) {
+    		try {
+    	    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	    	Parent root = FXMLLoader.load(getClass().getResource("/PostLoginSCreen.fxml"));
+    			Scene scene = new Scene(root, 300, 500);
+    			stage.setTitle("Menu");
+    			stage.setScene(scene);
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}
+    	}
+    	
     }
     
     @FXML

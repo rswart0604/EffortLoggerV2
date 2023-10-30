@@ -99,26 +99,38 @@ public class EffortLoggingInputController {
 	
     @FXML
     private void backClicked(ActionEvent event) {
-    	try {
-	    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	    	Parent root = FXMLLoader.load(getClass().getResource("/main_menu.fxml"));
-			Scene scene = new Scene(root, 300, 500);
-			stage.setTitle("Main menu");
-			stage.setScene(scene);
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	}
+    	if (EffortLoggerData.getInstance().isSinglePrototype()) {
+	    	try {
+		    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    	Parent root = FXMLLoader.load(getClass().getResource("/main_menu.fxml"));
+				Scene scene = new Scene(root, 300, 500);
+				stage.setTitle("Main menu");
+				stage.setScene(scene);
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+		} else {
+			try {
+		    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    	Parent root = FXMLLoader.load(getClass().getResource("/PostLoginScreen.fxml"));
+				Scene scene = new Scene(root, 1000, 560);
+				stage.setTitle("Main menu");
+				stage.setScene(scene);
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+		}
     }
 
     @FXML
     private void initialize() {
     	
-    	startTimes = EffortLoggingData.getInstance().getStartTimes();
-    	endTimes = EffortLoggingData.getInstance().getStartTimes();
-    	projects = EffortLoggingData.getInstance().getProjects();
-    	lifeCycles = EffortLoggingData.getInstance().getLifeCycles();
-    	effortCategories = EffortLoggingData.getInstance().getEffortCategories();
-    	items = EffortLoggingData.getInstance().getItems();
+    	startTimes = EffortLoggerData.getInstance().getStartTimes();
+    	endTimes = EffortLoggerData.getInstance().getEndTimes();
+    	projects = EffortLoggerData.getInstance().getProjects();
+    	lifeCycles = EffortLoggerData.getInstance().getLifeCycles();
+    	effortCategories = EffortLoggerData.getInstance().getEffortCategories();
+    	items = EffortLoggerData.getInstance().getItems();
     	
     	
     	projectBox.getItems().addAll("Business Project", "Development Project");

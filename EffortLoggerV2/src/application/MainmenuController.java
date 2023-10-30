@@ -29,6 +29,7 @@ public class MainmenuController {
 	
 	@FXML
 	private void oneClicked(ActionEvent event) {
+		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			System.out.println(stage);
@@ -43,6 +44,7 @@ public class MainmenuController {
 	
 	@FXML
 	private void twoClicked(ActionEvent event) {
+		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			System.out.println(stage);
@@ -57,6 +59,7 @@ public class MainmenuController {
 	
 	@FXML
 	private void threeClicked(ActionEvent event) {
+		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			System.out.println(stage);
@@ -71,6 +74,7 @@ public class MainmenuController {
 	
 	@FXML
 	private void fourClicked(ActionEvent event) {
+		EffortLoggerData.getInstance().setSinglePrototype(true);
 		try {
 			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			System.out.println(stage);
@@ -84,18 +88,48 @@ public class MainmenuController {
 	}
 	
 	@FXML
-	private void fiveClicked() {
-		
+	private void fiveClicked(ActionEvent event) {
+		EffortLoggerData.getInstance().setSinglePrototype(true);
+		try {
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			System.out.println(stage);
+			Parent root = FXMLLoader.load(getClass().getResource("/PostLoginScreen.fxml"));
+			Scene scene = new Scene(root, 1000, 560);
+			stage.setTitle("Prototype 6");
+			stage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
-	private void sixClicked() {
-		
+	private void sixClicked(ActionEvent event) {
+		EffortLoggerData.getInstance().setSinglePrototype(true);
+		try {
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			System.out.println(stage);
+			Parent root = FXMLLoader.load(getClass().getResource("/effortlogging_delete.fxml"));
+			Scene scene = new Scene(root, 1000, 560);
+			stage.setTitle("Prototype 6");
+			stage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
-	private void integratedClicked() {
-		
+	private void integratedClicked(ActionEvent event) {
+		EffortLoggerData.getInstance().setSinglePrototype(false);
+		try {
+			Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			System.out.println(stage);
+			Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+			Scene scene = new Scene(root, 1000, 560);
+			stage.setTitle("Prototype 1");
+			stage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
