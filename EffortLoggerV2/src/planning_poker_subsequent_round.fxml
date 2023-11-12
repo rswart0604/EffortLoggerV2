@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="801.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlanningPokerSubsequentRoundController">
+   <children>
+      <TextField fx:id="biasTextField" layoutX="32.0" layoutY="368.0" promptText="Fixed bias" />
+      <Button fx:id="estimateButton" layoutX="32.0" layoutY="413.0" mnemonicParsing="false" onAction="#estimateClicked" text="Estimate" />
+      <Button fx:id="nextButton" layoutX="32.0" layoutY="461.0" mnemonicParsing="false" onAction="#nextClicked" text="Next" />
+      <ScrollPane fx:id="scrollPane" layoutX="32.0" layoutY="25.0" prefHeight="295.0" prefWidth="668.0" />
+      <Text fx:id="storyPointsText" layoutX="152.0" layoutY="431.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <TextField fx:id="newProjectField" layoutX="32.0" layoutY="513.0" />
+      <TextArea fx:id="userStoryTextArea" layoutX="32.0" layoutY="551.0" prefHeight="141.0" prefWidth="668.0" />
+      <TextArea fx:id="keyWordsTextArea" layoutX="32.0" layoutY="707.0" prefHeight="69.0" prefWidth="668.0" />
+      <Button fx:id="editButton" layoutX="217.0" layoutY="514.0" mnemonicParsing="false" onAction="#editClicked" text="Edit" />
+   </children>
+</Pane>

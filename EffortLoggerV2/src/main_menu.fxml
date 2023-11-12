@@ -7,10 +7,10 @@
    <children>
       <Button fx:id="prototypeOneButton" layoutX="36.0" layoutY="21.0" mnemonicParsing="false" onAction="#oneClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 1: Login screen" />
       <Button fx:id="prototypeTwoButton" layoutX="36.0" layoutY="68.0" mnemonicParsing="false" onAction="#twoClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 2: User story input" />
-      <Button fx:id="prototypeThreeButton" layoutX="36.0" layoutY="121.0" mnemonicParsing="false" onAction="#threeClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 3: Main menu GUI" />
-      <Button fx:id="prototypeFourButton" layoutX="36.0" layoutY="169.0" mnemonicParsing="false" onAction="#fourClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 4: EffortLogger input" />
-      <Button fx:id="prototypeFiveButton" layoutX="36.0" layoutY="216.0" mnemonicParsing="false" onAction="#fiveClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 5: EffortLogger display" />
-      <Button fx:id="prototypeSixButton" layoutX="36.0" layoutY="267.0" mnemonicParsing="false" onAction="#sixClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 6: Allocation errors (deletion)" />
+      <Button fx:id="prototypeThreeButton" layoutX="36.0" layoutY="121.0" mnemonicParsing="false" onAction="#threeClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 3: EffortLogger Input" />
+      <Button fx:id="prototypeFourButton" layoutX="36.0" layoutY="169.0" mnemonicParsing="false" onAction="#fourClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 4: EffortLogger Display" />
+      <Button fx:id="prototypeFiveButton" layoutX="36.0" layoutY="216.0" mnemonicParsing="false" onAction="#fiveClicked" prefHeight="26.0" prefWidth="222.0" text="Prototype 5: Main menu GUI" />
+      <Button fx:id="prototypeSixButton" layoutX="26.0" layoutY="266.0" mnemonicParsing="false" onAction="#sixClicked" prefHeight="26.0" prefWidth="243.0" text="Prototype 6: Allocation errors (deletion)" />
       <Button fx:id="integratedPrototypeButton" layoutX="36.0" layoutY="354.0" mnemonicParsing="false" onAction="#integratedClicked" prefHeight="26.0" prefWidth="222.0" text="Integrated prototype" />
    </children>
 </Pane>

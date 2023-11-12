@@ -37,6 +37,8 @@ public class PostLoginScreen {
 	@FXML
 	private Button storyInputButton;
 	@FXML
+	private Button planningPokerButton;
+	@FXML
 	private Label welcomeLabel;
 	
 	
@@ -112,6 +114,41 @@ public class PostLoginScreen {
 	    	}
 		}
 	}
+	
+	
+	// Take us to the first phase of ACTUAL PLANNING POKER
+	// TODO
+	@FXML
+	private void planningPokerClicked(ActionEvent event) {
+		if (!EffortLoggerData.getInstance().singlePrototype) {
+			try {
+		    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		    	Parent root = FXMLLoader.load(getClass().getResource("/planning_poker_setup.fxml"));
+				Scene scene = new Scene(root, 1000, 560);
+				stage.setTitle("Main menu");
+				stage.setScene(scene);
+	    	} catch (Exception e) {
+	    		e.printStackTrace();
+	    	}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
