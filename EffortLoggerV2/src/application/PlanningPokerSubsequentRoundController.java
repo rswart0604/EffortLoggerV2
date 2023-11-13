@@ -68,12 +68,17 @@ public class PlanningPokerSubsequentRoundController {
 	
 	@FXML private void estimateClicked() {
 		double sum = 0;
+		int count = 0;
 		for (int i=0; i<data.effortPoints.size(); i++) {
+			count++;
 			if (selectedList.contains(i)) {
 				TextField weightBox = weightFields.get(i);
 				double weight = Double.parseDouble(weightBox.getText());
 				sum += data.effortPoints.get(i) * weight;
 			}
+		}
+		if (count != 0) {
+			sum = sum/ (double) count;
 		}
 		
 		int bias = 0;

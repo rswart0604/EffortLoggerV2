@@ -64,8 +64,13 @@ public class PlanningPokerFirstRoundController {
 	@FXML
 	private void estimateClicked() {
 		int sum = 0;
+		int count = 0;
 		for (Integer i : selectedList) {
 			sum += data.effortPoints.get(i);
+			count++;
+		}
+		if (count != 0) {
+			sum = (int) sum/count;
 		}
 		storyPointsText.setText(Integer.toString(sum));
 	}
