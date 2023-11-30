@@ -2,6 +2,8 @@ package application;
 
 import java.util.ArrayList;
 
+// Author: Ryan Swart
+
 public class PlanningPokerData {
 
 	private final static PlanningPokerData instance = new PlanningPokerData();

@@ -25,8 +25,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+// Om
+
 public class PlanningPokerSubsequentRoundController {
 
+	// show the UI stuff
 	@FXML
 	private TextField newProjectField;
 	@FXML
@@ -46,12 +49,12 @@ public class PlanningPokerSubsequentRoundController {
 	@FXML
 	private TextField biasTextField;
 	
-	
-	
+	// Data and arraylists to hold our stuff
 	PlanningPokerData data = PlanningPokerData.getInstance();
 	private ArrayList<Integer> selectedList = data.selectedList;
 	private ArrayList<TextField> weightFields = new ArrayList<>();
 	
+	// take us to the next screen (our stuff should be presaved)
 	@FXML
 	private void nextClicked(ActionEvent event) {
 		
@@ -66,12 +69,13 @@ public class PlanningPokerSubsequentRoundController {
     	}
 	}
 	
+	// find our average but take into account weights and the bias
 	@FXML private void estimateClicked() {
 		double sum = 0;
 		int count = 0;
 		for (int i=0; i<data.effortPoints.size(); i++) {
-			count++;
 			if (selectedList.contains(i)) {
+				count++;
 				TextField weightBox = weightFields.get(i);
 				double weight = Double.parseDouble(weightBox.getText());
 				sum += data.effortPoints.get(i) * weight;
@@ -90,6 +94,7 @@ public class PlanningPokerSubsequentRoundController {
 		storyPointsText.setText(Integer.toString((int) sum));
 	}
 	
+	// edit the user story if we want
 	@FXML
 	private void editClicked() {
 		data.currentStory = userStoryTextArea.getText();
@@ -97,8 +102,11 @@ public class PlanningPokerSubsequentRoundController {
 		data.currentKeys = keyWordsTextArea.getText().split(",");
 	}
 	
+	// make the grid pane and stuff again
 	@FXML
 	private void initialize() {
+		
+		// just like in the last one
 		GridPane gridPane = new GridPane();  
 		
 		ColumnConstraints col1 = new ColumnConstraints();
@@ -149,6 +157,7 @@ public class PlanningPokerSubsequentRoundController {
 		gridPane.setGridLinesVisible(true);
 		scrollPane.setContent(gridPane);
 		
+		// get text stuff
 		newProjectField.setText(data.currentProject);
 		userStoryTextArea.setText(data.currentStory);
 		keyWordsTextArea.setText(String.join(",", data.currentKeys));

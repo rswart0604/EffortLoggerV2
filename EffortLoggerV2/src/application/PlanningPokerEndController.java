@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 
 public class PlanningPokerEndController {
 	
+	
 	@FXML
 	private TextArea userStoryTextArea;
 	@FXML
@@ -41,8 +42,11 @@ public class PlanningPokerEndController {
 	@FXML
 	private Button backButton;
 	
+	// get data
 	PlanningPokerData data = PlanningPokerData.getInstance();
 	
+	// get the submit clicked
+	// store the data for later use
 	@FXML
 	private void submitClicked() {
 		data.effortPoints.add(Integer.parseInt(storyPointsField.getText()));
@@ -56,6 +60,7 @@ public class PlanningPokerEndController {
 		System.out.println(Arrays.toString(data.keyWords.toArray()));
 	}
 	
+	// get us outta here!
 	@FXML
 	private void backClicked(ActionEvent event) {
 		try {
@@ -69,15 +74,11 @@ public class PlanningPokerEndController {
     	}
 	}
 	
+	// print out our user story and calculated effort
 	@FXML
 	private void initialize() {
 		storyPointsField.setText(Integer.toString(data.currentPoints));
 		userStoryTextArea.setText(data.currentStory);
 		keyWordsTextArea.setText(String.join(",", data.currentKeys));
-	}
-	
-	
-	
-	
-	
+	}	
 }

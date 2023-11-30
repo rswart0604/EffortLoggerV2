@@ -32,8 +32,9 @@ public class Main extends Application {
     @Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/main_menu.fxml"));
-			Scene scene = new Scene(root, 300, 500);
+			EffortLoggerData.getInstance().setSinglePrototype(false);
+			Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
+			Scene scene = new Scene(root, 1000, 560);
 			primaryStage.setTitle("Main menu");
 			primaryStage.setScene(scene);
 			primaryStage.show();			
