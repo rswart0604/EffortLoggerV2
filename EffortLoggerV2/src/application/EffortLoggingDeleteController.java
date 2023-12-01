@@ -61,6 +61,7 @@ public class EffortLoggingDeleteController {
 			return;
 		}
 		int index;
+		//try-catch exception 
 		try {
 			index = Integer.parseInt(toDelete);
 		} catch (Exception e) {
