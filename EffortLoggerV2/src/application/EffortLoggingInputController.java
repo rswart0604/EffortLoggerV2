@@ -101,6 +101,7 @@ public class EffortLoggingInputController {
 			started = false;
 			
 			// Print the logged data to the console
+			//for loop thorugh the project array list
 			for (int i=0; i<projects.size(); i++) {
 			
 				System.out.println("Project: " + projects.get(i));
